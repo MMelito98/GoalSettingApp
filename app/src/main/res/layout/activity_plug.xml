@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.GoalSettingApp"
+    android:background="@color/light_blue"
+    tools:context=".PlugActivity">
+
+<!--    <android.support.design.widget.AppBarLayout-->
+<!--        android:id="@+id/appBarLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/Theme.GoalSettingApp.AppBarOverlay">-->
+
+<!--        <android.support.v7.widget.Toolbar-->
+<!--            android:id="@+id/toolbar_plug"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@color/dark_blue" />-->
+
+<!--    </android.support.design.widget.AppBarLayout>-->
+
+    <TextView
+        android:id="@+id/thank_you_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="1dp"
+
+        android:text="@string/thank_you_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <TextView
+        android:id="@+id/app_status_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/app_status_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thank_you_textview" />
+
+    <TextView
+        android:id="@+id/job_hunt_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/job_hunt_text"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/twitter_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/linkedin_image"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/twitter_image"
+        app:layout_constraintEnd_toStartOf="@+id/twitter_image"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/linkedin"
+        android:onClick="openLinkedIn"/>
+
+    <ImageView
+        android:id="@+id/twitter_image"
+        android:layout_width="78dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/twitter"
+        android:onClick="openTwitter"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

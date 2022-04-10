@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#AC06F3</color>
+    <color name="light_gray">#AEE3E0E0</color>
+    <color name="dark_blue">#004247</color>
+    <color name="light_blue">#ABDEE6</color>
+    <color name="maroon">#c6b3ab</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="charcoal">#36454F</color>
+    <color name="rose_red">#FF2768</color>
+    <color name="aqua">#04ECF0</color>
+    <color name="light_charcoal">#A7B8C3</color>
+</resources>

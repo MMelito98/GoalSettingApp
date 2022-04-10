@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GoalSettingApp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/charcoal</item>
+        <item name="colorPrimaryDark">@color/light_charcoal</item>
+        <item name="colorAccent">@color/rose_red</item>
+        <item name="background">@color/charcoal</item>
+        <item name="android:toolbarStyle">@style/Theme.GoalSettingApp.AppBarOverlay</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.GoalSettingApp.NoActionBar">
+
+    </style>
+    <style name="Theme.GoalSettingApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="background">@color/dark_blue</item>
+        <item name="actionMenuTextColor">@color/white</item>
+    </style>
+
+    <style name="Theme.GoalSettingApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

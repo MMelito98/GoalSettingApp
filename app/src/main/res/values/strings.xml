@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">GoalSettingApp</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_plug">PlugActivity</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_title">Goalee</string>
+    <string name="welcome_message">Make your goals bite sized</string>
+    <string name="plug_text">More from this Developer</string>
+    <string name="calendar_button_text">View Progress</string>
+    <string name="get_button_text">Set Goals</string>
+    <string name="thank_you_text">Thank you for clicking on this and downloading \n my first app! My name is Mike and I\'m a self-taught \n Android Developer. Feel free to check out my other \n apps on the Google Playstore below:</string>
+    <string name="app_status_text">None yet, but they\'re coming!</string>
+    <string name="job_hunt_text">Feel free to reach out:</string>
+    <string name="Year_5_tab_txt">5 Year</string>
+    <string name="year_1_tab_text">1 Year</string>
+    <string name="quarter_tab_text">Quarter</string>
+    <string name="past_goals">Past Goals</string>
+    <string name="title_placeholder">Title</string>
+    <string name="subtitle_placeholder">Subtitle</string>
+    <string name="current_date">Current Date:     </string>
+    <string name="update_progress">Update Progress</string>
+
+    <!--    App Data saved here for time being -->
+    <string-array name="quarter_titles_strings">
+        <item>Q1T</item>
+        <item>Q2T</item>
+        <item>Q3T</item>
+        <item>Q4T</item>
+        <item>Q5T</item>
+    </string-array>
+
+    <string-array name="quarter_desc_strings">
+        <item>Q1d</item>
+        <item>Q2d</item>
+        <item>Q3d</item>
+        <item>Q4d</item>
+        <item>Q5d</item>
+    </string-array>
+
+    <string-array name="goal_group_list">
+        <item>Quarterly Goal</item>
+        <item>One Year Goal</item>
+        <item>Five Year Goal</item>
+    </string-array>
+</resources>
