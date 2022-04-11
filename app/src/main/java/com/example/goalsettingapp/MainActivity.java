@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private static int REQUEST_CODE = 1;
     private MainViewModel mMainViewModel;
-
+    int tabPosition;
 
 
     @Override
@@ -59,22 +59,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);    //Setting up the tab layout - tabs done in XML
-        final ViewPager2 viewPager = findViewById(R.id.pager);
+        ViewPager2 viewPager = findViewById(R.id.pager);
 
-        PageAdapter adapter = new PageAdapter(this.getSupportFragmentManager(), this.getLifecycle());
+        PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), getLifecycle());
+
+
         viewPager.setAdapter(adapter);
-//        new TabLayoutMediator(tabLayout, viewPager,(tab, position) -> {
-//            tab.setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
-//        }).attach();
+        adapter.addFragment(new RecyclerViewQuarterFragment());
+        adapter.addFragment(new RecyclerViewYearlyFragment());
+        adapter.addFragment(new RecyclerViewFiveYearlyFragment());
+        new TabLayoutMediator(tabLayout, viewPager,(tab, position) -> {
+            tab.setText("Tab");
+        }).attach();
 
-        // NOthing here is working still can't get the new tab layout to work2
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                int tabPosition = tab.getPosition();
-                viewPager.setCurrentItem(tabPosition);
+                tabPosition = tab.getPosition();
                 goalDateText.setText(getGoalDate(tabPosition));
+                viewPager.setCurrentItem(tabPosition);
             }
 
             @Override
