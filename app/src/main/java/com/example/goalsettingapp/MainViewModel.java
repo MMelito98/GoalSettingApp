@@ -11,7 +11,7 @@ public class MainViewModel extends ViewModel {
     private static MutableLiveData<ArrayList<Goals>> mQuarterlyGoals = new MutableLiveData<>();
     private static ArrayList<Goals> mQuarterlyGoalsList = new ArrayList<>();
 
-    private static MutableLiveData<ArrayList<Goals>> mYearlyGoals = new MutableLiveData<>();
+    static MutableLiveData<ArrayList<Goals>> mYearlyGoals = new MutableLiveData<>();
     private static ArrayList<Goals> mYearlyGoalsList = new ArrayList<>();
 
     private static MutableLiveData<ArrayList<Goals>> mFiveYearlyGoals = new MutableLiveData<ArrayList<Goals>>();
@@ -23,6 +23,9 @@ public class MainViewModel extends ViewModel {
     }
     public ArrayList<Goals> getYearlyGoals(){
         return mYearlyGoals.getValue();
+    }
+    public LiveData<ArrayList<Goals>> getGoals() {
+        return mYearlyGoals;
     }
     public ArrayList<Goals> getFiveYearlyGoals(){
         return mFiveYearlyGoals.getValue();

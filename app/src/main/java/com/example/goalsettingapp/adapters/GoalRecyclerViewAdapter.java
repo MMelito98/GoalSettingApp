@@ -93,6 +93,11 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
         return value;
     }
 
+    public void updateGoals(ArrayList<Goals> goals) {
+        mGoalsList = goals;
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder
         implements View.OnClickListener{

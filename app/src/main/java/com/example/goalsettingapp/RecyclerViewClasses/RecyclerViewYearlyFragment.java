@@ -74,9 +74,16 @@ public class RecyclerViewYearlyFragment extends Fragment {
             GoalRecyclerViewAdapter adapter = new GoalRecyclerViewAdapter (
                     mMainViewModel.getYearlyGoals());
 
+            mMainViewModel.getGoals().observe(getViewLifecycleOwner(), goals -> {
+                updateGoals(goals,adapter);
+            });
             recyclerView.setAdapter(adapter);
         }
         return view;
+    }
+
+    private void updateGoals(ArrayList<Goals> goals, GoalRecyclerViewAdapter adapter) {
+        adapter.updateGoals(goals);
     }
 
 

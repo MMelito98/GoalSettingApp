@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void toolbarSetup() {
         Toolbar toolbar = findViewById(R.id.toolbar_main);  //Setting up toolbar
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
     }
 
     public void goToPlugPage(View view) {
