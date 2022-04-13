@@ -18,21 +18,15 @@ public class MainViewModel extends ViewModel {
     private static ArrayList<Goals> mFiveYearlyGoalsList = new ArrayList<>();
 
 
-    public ArrayList<Goals> getQuarterlyGoals(){
-        return mQuarterlyGoals.getValue();
-    }
-    public ArrayList<Goals> getYearlyGoals(){
-        return mYearlyGoals.getValue();
-    }
-    public LiveData<ArrayList<Goals>> getGoals() {
+    public LiveData<ArrayList<Goals>> getQuarterlyGoals(){ return mQuarterlyGoals; }
+    public LiveData<ArrayList<Goals>> getYearlyGoals() {
         return mYearlyGoals;
     }
-    public ArrayList<Goals> getFiveYearlyGoals(){
-        return mFiveYearlyGoals.getValue();
-    }
+    public LiveData<ArrayList<Goals>> getFiveYearlyGoals(){ return mFiveYearlyGoals; }
 
     public void addQuarterlyGoal(Goals goal){
         mQuarterlyGoalsList.add(goal);
+
         mQuarterlyGoals.postValue(mQuarterlyGoalsList);
     }
 

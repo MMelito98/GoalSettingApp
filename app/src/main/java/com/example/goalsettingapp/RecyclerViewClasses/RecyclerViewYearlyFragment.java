@@ -72,9 +72,9 @@ public class RecyclerViewYearlyFragment extends Fragment {
             int currentTabPosition = PageAdapter.getCurrentTab();
 
             GoalRecyclerViewAdapter adapter = new GoalRecyclerViewAdapter (
-                    mMainViewModel.getYearlyGoals());
+                    mMainViewModel.getYearlyGoals().getValue());
 
-            mMainViewModel.getGoals().observe(getViewLifecycleOwner(), goals -> {
+            mMainViewModel.getYearlyGoals().observe(getViewLifecycleOwner(), goals -> {
                 updateGoals(goals,adapter);
             });
             recyclerView.setAdapter(adapter);
