@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
-
+//test comment
 public class MainViewModel extends ViewModel {
 
     private static MutableLiveData<ArrayList<Goals>> mQuarterlyGoals = new MutableLiveData<>();
