@@ -15,11 +15,16 @@ import com.example.goalsettingapp.RecyclerViewClasses.RecyclerViewFiveYearlyFrag
 import com.example.goalsettingapp.RecyclerViewClasses.RecyclerViewQuarterFragment;
 import com.example.goalsettingapp.RecyclerViewClasses.RecyclerViewYearlyFragment;
 
+import java.util.ArrayList;
+
 
 public class PageAdapter extends FragmentStateAdapter {
     int mNumOfTabs;
 
     private static int mCurrentTab;
+    final String LOGTAG = PageAdapter.class.getSimpleName();
+
+    ArrayList<Fragment> fragmentList = new ArrayList<>();
 
 
     public PageAdapter(@NonNull FragmentManager fm, Lifecycle lifecycle) {
@@ -30,24 +35,17 @@ public class PageAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int i) {
-        Log.d("HERE", "got here");
-        switch (i) {
-            case (0):
-                return new RecyclerViewQuarterFragment();
-
-            case (1):
-                return new RecyclerViewYearlyFragment();
-
-            case (2):
-                return new RecyclerViewFiveYearlyFragment();
-            default:
-                return null;
-        }
+        Log.d(LOGTAG, "PageAdapter i: "+ Integer.toString(i));
+        return fragmentList.get(i);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return fragmentList.size();
+    }
+
+    public void addFragment(Fragment fragment){
+        fragmentList.add(fragment);
     }
 
 
