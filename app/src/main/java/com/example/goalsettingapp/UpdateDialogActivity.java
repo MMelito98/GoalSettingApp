@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.lifecycle.ViewModel;
+
 import com.example.goalsettingapp.RecyclerViewClasses.RecyclerViewQuarterFragment;
 import com.example.goalsettingapp.adapters.GoalRecyclerViewAdapter;
 
 public class UpdateDialogActivity extends Activity {
 
     public static final String CURRENT_VAL_CODE= "SUPER SECRET CODE FOR GROUP";
+    ViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

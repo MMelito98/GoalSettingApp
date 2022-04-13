@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 
 public class PageAdapter extends FragmentStateAdapter {
-    int mNumOfTabs;
 
     private static int mCurrentTab;
     final String LOGTAG = PageAdapter.class.getSimpleName();
