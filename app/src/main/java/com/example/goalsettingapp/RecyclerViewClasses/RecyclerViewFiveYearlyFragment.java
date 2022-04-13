@@ -1,32 +1,24 @@
 package com.example.goalsettingapp.RecyclerViewClasses;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.goalsettingapp.Goals;
 import com.example.goalsettingapp.MainViewModel;
 import com.example.goalsettingapp.R;
 import com.example.goalsettingapp.adapters.GoalRecyclerViewAdapter;
 import com.example.goalsettingapp.adapters.PageAdapter;
 
-import java.util.ArrayList;
-
 
 public class RecyclerViewFiveYearlyFragment extends Fragment {
 
-    private static ArrayList<Goals> mFiveYearlyGoals = new ArrayList<>();
-    private MainViewModel mMainViewModel;
+    private MainViewModel viewModel;
 
 
     public RecyclerViewFiveYearlyFragment() { /*empty constructer*/}
@@ -38,14 +30,14 @@ public class RecyclerViewFiveYearlyFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.five_yearly_list);
 
-        mMainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         GoalRecyclerViewAdapter adapter;
         int currentTabPosition = PageAdapter.getCurrentTab();
 
-        adapter = new GoalRecyclerViewAdapter(mMainViewModel.getFiveYearlyGoals().getValue());
-        mMainViewModel.getFiveYearlyGoals().observe(getViewLifecycleOwner(), goals -> {
-            adapter.updateGoals(goals);
+        adapter = new GoalRecyclerViewAdapter(viewModel.getFiveYearlyGoals().getValue());
+        viewModel.getFiveYearlyGoals().observe(getViewLifecycleOwner(), goals -> {
+            adapter.addGoal(goals);
         });
         recyclerView.setAdapter(adapter);
 

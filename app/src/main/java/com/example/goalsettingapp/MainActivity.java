@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 tabPosition = tab.getPosition();
                 goalDateText.setText(getGoalDate(tabPosition));
-                viewPager.setCurrentItem(tabPosition);
+                viewModel.setTabPosition(tabPosition);
             }
 
             @Override

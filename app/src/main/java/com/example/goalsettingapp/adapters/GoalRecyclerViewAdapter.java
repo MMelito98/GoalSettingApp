@@ -3,9 +3,9 @@ package com.example.goalsettingapp.adapters;
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.example.goalsettingapp.Goals;
 import com.example.goalsettingapp.R;
-import com.example.goalsettingapp.UpdateDialogActivity;
+import com.example.goalsettingapp.UpdateDialogFragment;
 import com.example.goalsettingapp.databinding.FragmentListItemBinding;
 
 import java.util.ArrayList;
@@ -61,10 +61,15 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
         holder.mUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent updateIntent = new Intent(mContext, UpdateDialogActivity.class);
-                updateIntent.putExtra(TAB_CODE, position);
-                updateIntent.putExtra(POSITION_CODE,  PageAdapter.getCurrentTab());
-                mContext.startActivity(updateIntent);
+//                Intent updateIntent = new Intent(mContext, UpdateDialogFragment.class);
+
+                new UpdateDialogFragment(position).show(
+                        ((AppCompatActivity) mContext).getSupportFragmentManager(),
+                        UpdateDialogFragment.FRAGMENT_TAG);
+
+//                updateIntent.putExtra(TAB_CODE, position);
+//                updateIntent.putExtra(POSITION_CODE,  PageAdapter.getCurrentTab());
+//                mContext.startActivity(updateIntent);
             }
         });
 
@@ -93,7 +98,7 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
         return value;
     }
 
-    public void updateGoals(ArrayList<Goals> goals) {
+    public void addGoal(ArrayList<Goals> goals) {
         mGoalsList = goals;
         notifyDataSetChanged();
     }
