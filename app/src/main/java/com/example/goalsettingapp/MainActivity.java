@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
         toolbarSetup();
 
         TextView currentDateText = findViewById(R.id.current_date);
-        currentDateText.setText(getCurrentDate());
+
+        currentDateText.setText(GoalDateHandler.getCurrentDate());
         TextView goalDateText = findViewById(R.id.goal_date);
-        goalDateText.setText(getGoalDate(0));
+
+        goalDateText.setText(GoalDateHandler.getGoalDate(0));
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
@@ -64,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new RecyclerViewYearlyFragment());
         adapter.addFragment(new RecyclerViewFiveYearlyFragment());
         new TabLayoutMediator(tabLayout, viewPager,(tab, position) -> {
-            tab.setText("Tab");
+            String[] goalTypeNames = getResources().getStringArray(R.array.goal_group_list);
+            String currentName = goalTypeNames[position];
+            String massagedName = currentName.substring(0, currentName.length()-5);
+            tab.setText(massagedName);
         }).attach();
 
 
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 tabPosition = tab.getPosition();
-                goalDateText.setText(getGoalDate(tabPosition));
+                goalDateText.setText(GoalDateHandler.getGoalDate(tabPosition));
                 viewModel.setTabPosition(tabPosition);
             }
 
@@ -120,54 +125,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private String getCurrentDate() {
-        Date today = new Date();
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTime(today);
-
-        DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-
-        return sdf.format(today);
-    }
-
-    private String getGoalDate(int position) {
-        Date today = new Date();
-        Date goalDate = new Date();
-
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTime(today);
-
-        switch (position){
-            case 0:
-                int month = calendar.get(Calendar.MONTH);
-                int newMonth = month + ((month)%3);
-
-                calendar.set(Calendar.MONTH, newMonth);
-
-                int newDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); // Makes day end of month
-
-                calendar.set(Calendar.DAY_OF_MONTH, newDay);
-
-                goalDate = calendar.getTime();
-                break;
-            case 1:
-                calendar.set(Calendar.DAY_OF_MONTH, 1);
-                calendar.set(Calendar.MONTH, 0);
-                calendar.add(Calendar.YEAR, 1);
-                goalDate = calendar.getTime();
-                break;
-            case 2:
-                calendar.set(Calendar.DAY_OF_MONTH, 1);
-                calendar.set(Calendar.MONTH, 0);
-                calendar.add(Calendar.YEAR, 5);
-                goalDate = calendar.getTime();
-                break;
-
-        }
-        DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        return sdf.format(goalDate);
     }
 
 

@@ -47,20 +47,13 @@ public class AddDialogActivity extends Activity {
         enterGoalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double goalValue = null;
 
                 String goalTitle = mGoalTitle.getText().toString();
                 String goalDesc = mGoalDesc.getText().toString();
                 String goalStrNum = mGoalValue.getText().toString();
 
+                int goalValue = UpdateDialogFragment.checkStringIntegerValue(goalStrNum);
 
-                if ((goalStrNum != null) && goalStrNum.length() > 0){
-                    try{
-                        goalValue = Double.parseDouble(goalStrNum);
-                    } catch (Exception e){
-                        goalValue = Double.valueOf(-1);
-                    }
-                }
                 int goalGroupint = spinner.getSelectedItemPosition();
 
                 Intent intent = new Intent();

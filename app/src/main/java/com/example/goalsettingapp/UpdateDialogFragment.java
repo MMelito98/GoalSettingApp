@@ -1,8 +1,5 @@
 package com.example.goalsettingapp;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +10,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.example.goalsettingapp.RecyclerViewClasses.RecyclerViewQuarterFragment;
-import com.example.goalsettingapp.adapters.GoalRecyclerViewAdapter;
 
 public class UpdateDialogFragment extends DialogFragment {
 
@@ -42,7 +35,7 @@ public class UpdateDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 String newCurrVal = mNewCurrentValue.getText().toString();
-                int goalValue = checkCurrentValue(newCurrVal);
+                int goalValue = checkStringIntegerValue(newCurrVal);
 
                 viewModel.updateGoalValue(goalValue, recyclerViewPosition);
 
@@ -53,7 +46,7 @@ public class UpdateDialogFragment extends DialogFragment {
 
     }
 
-    private int checkCurrentValue(String newCurrVal) {
+    public static int checkStringIntegerValue(String newCurrVal) {
         int goalValue = 0;
         if ((newCurrVal != null) && newCurrVal.length() > 0){
             try{

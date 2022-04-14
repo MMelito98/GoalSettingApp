@@ -55,21 +55,16 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
         int currentValue = mGoalsList.get(position).getCurrentValue();
         int goalValue = mGoalsList.get(position).getGoalValue();
         holder.mProgressText.setText("" + currentValue + "/" +
-                mGoalsList.get(position).getGoalValue() + "");
+                goalValue + "");
         holder.mProgressBar.setProgress(getProgressBarNumber(currentValue, goalValue));
 
         holder.mUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent updateIntent = new Intent(mContext, UpdateDialogFragment.class);
 
                 new UpdateDialogFragment(position).show(
                         ((AppCompatActivity) mContext).getSupportFragmentManager(),
                         UpdateDialogFragment.FRAGMENT_TAG);
-
-//                updateIntent.putExtra(TAB_CODE, position);
-//                updateIntent.putExtra(POSITION_CODE,  PageAdapter.getCurrentTab());
-//                mContext.startActivity(updateIntent);
             }
         });
 
@@ -89,9 +84,9 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
     private int getProgressBarNumber(int current, int goal){
         int value;
         try {
-            value = (current / goal) * 100;
+            value = (int)(((double) current / (double) goal) * 100);
         } catch (ArithmeticException e) {
-            value = 0;
+            value = 34;
         }
         if (value > 100)
             value =  100;
