@@ -25,11 +25,6 @@ import android.widget.TextView;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager2.widget.ViewPager2;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
@@ -120,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.add:
-                addGoal();
+                new AddDialogFragment().show(getSupportFragmentManager(),
+                        AddDialogFragment.FRAGMENT_TAG);
                 break;
         }
 
@@ -128,37 +124,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void addGoal() {
-        Intent addIntent = new Intent(this, AddDialogActivity.class);
-        startActivityForResult(addIntent, REQUEST_CODE);
-        //be set to the right goal group
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == RESULT_OK){
-            Goals goal = new Goals(data.getStringExtra(AddDialogActivity.TITLE_CODE),
-                    data.getStringExtra(AddDialogActivity.DESC_CODE),
-                    data.getIntExtra(AddDialogActivity.VALUE_CODE, 0));
-            int goalGroup = data.getIntExtra(AddDialogActivity.GROUP_CODE,0);
-
-            switch (goalGroup){
-                case (0):
-                    viewModel.addQuarterlyGoal(goal);
-                    break;
-                case (1):
-                    viewModel.addYearlyGoal(goal);
-                    break;
-                case (2):
-                    viewModel.addFiveYearlyGoal(goal);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
 }

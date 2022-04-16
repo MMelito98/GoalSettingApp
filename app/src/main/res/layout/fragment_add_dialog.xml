@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDialogFragment">
+
+    <Spinner
+        android:id="@+id/goal_group_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the name of your goal"
+        android:padding="16dp"
+        android:layout_below="@id/goal_group_spinner" />
+
+    <EditText
+        android:id="@+id/Goals_title_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Build a kick ass goals app"
+        android:textSize="12dp"
+        android:padding="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_below="@id/dialog_title" />
+
+    <TextView
+        android:id="@+id/dialog_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Describe what you want to do in a bit more detail.
+Try and quantify your actions here.  What gets measured gets
+managed."
+        android:padding="16dp"
+        android:layout_below="@id/Goals_title_input" />
+
+    <EditText
+        android:id="@+id/Goals_desc_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Put spend 100 hours coding this app"
+        android:textSize="12dp"
+        android:padding="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/dialog_desc"/>
+
+    <TextView
+        android:id="@+id/dialog_goal_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Input the goal value here. If you want to save $1000 dollars, enter 1000.
+If you want to lose 10 pounds enter 10.  This is the value we'll be working towards."
+        android:padding="16dp"
+        android:layout_below="@id/Goals_desc_input"/>
+
+    <EditText
+        android:id="@+id/Goals_value_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="100"
+        android:inputType="number"
+        android:textSize="12dp"
+        android:padding="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_below="@id/dialog_goal_value"/>
+
+    <Button
+        android:id="@+id/update_goal_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Goal"
+        android:padding="16dp"
+        android:layout_below="@+id/Goals_value_input"/>
+
+</RelativeLayout>

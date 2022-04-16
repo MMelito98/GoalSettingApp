@@ -43,7 +43,10 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
-        return new ViewHolder(FragmentListItemBinding.inflate(LayoutInflater.from(mContext), parent, false));
+        return new ViewHolder(FragmentListItemBinding
+                .inflate(LayoutInflater.from(mContext),
+                        parent,
+                        false));
 
     }
 
@@ -56,14 +59,16 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalRecyclerVi
         int goalValue = mGoalsList.get(position).getGoalValue();
         holder.mProgressText.setText("" + currentValue + "/" +
                 goalValue + "");
-        holder.mProgressBar.setProgress(getProgressBarNumber(currentValue, goalValue));
+        holder.mProgressBar.
+                setProgress(getProgressBarNumber(currentValue, goalValue));
 
         holder.mUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 new UpdateDialogFragment(position).show(
-                        ((AppCompatActivity) mContext).getSupportFragmentManager(),
+                        ((AppCompatActivity) mContext)
+                                .getSupportFragmentManager(),
                         UpdateDialogFragment.FRAGMENT_TAG);
             }
         });

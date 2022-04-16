@@ -14,8 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class UpdateDialogFragment extends DialogFragment {
 
-    public static final String CURRENT_VAL_CODE= "SUPER SECRET CODE FOR GROUP";
-    public static final String FRAGMENT_TAG = UpdateDialogFragment.class.getSimpleName();
+    public static final String FRAGMENT_TAG = UpdateDialogFragment
+            .class.getSimpleName();
     int recyclerViewPosition;
 
     public UpdateDialogFragment(int position){
@@ -25,8 +25,10 @@ public class UpdateDialogFragment extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_update_dialog, container);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_update_dialog, container);
         MainViewModel viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         EditText mNewCurrentValue = view.findViewById(R.id.current_Goal_current_input);
@@ -58,37 +60,5 @@ public class UpdateDialogFragment extends DialogFragment {
         return goalValue;
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_update_dialog);
-//
-//
-//
-//        Button enterGoalsButton = findViewById(R.id.update_goal_button);
-//        enterGoalsButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int goalValue = 0;
-//                String newCurrVal = mNewCurrentValue.getText().toString();
-//
-//
-//                if ((newCurrVal != null) && newCurrVal.length() > 0){
-//                    try{
-//                        goalValue = Integer.parseInt(newCurrVal);
-//                    } catch (Exception e){
-//                        goalValue = -1;
-//                    }
-//                }
-//                Intent getIntent = getIntent();
-//                int tabValue = getIntent.getIntExtra(GoalRecyclerViewAdapter.TAB_CODE,0);
-//                int posValue = getIntent.getIntExtra(GoalRecyclerViewAdapter.POSITION_CODE,0);
-//
-//                new RecyclerViewQuarterFragment().changeQuarterlyGoalValue(tabValue, goalValue, posValue);
-//
-//                finish();
-//            }
-//        });
-//    }
 
 }
